@@ -1,5 +1,8 @@
 import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
-  container: {},
+  container: {
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+  },
 });
