@@ -1,18 +1,20 @@
-import React, {useState} from 'react';
-import {FlatList, Text, TouchableOpacity, View, ViewStyle} from 'react-native';
+import React from 'react';
+import {
+  FlatList,
+  ListRenderItem,
+  Text,
+  TouchableOpacity,
+  ViewStyle,
+} from 'react-native';
+import Animated, {
+  useAnimatedStyle,
+  useSharedValue,
+  withTiming,
+} from 'react-native-reanimated';
 /**
  * ? Local Imports
  */
 import styles from './AnimatedChip.style';
-import Animated, {
-  SensorType,
-  interpolate,
-  useAnimatedSensor,
-  useAnimatedStyle,
-  useSharedValue,
-  withSpring,
-  withTiming,
-} from 'react-native-reanimated';
 
 type ChipType = {
   id: string | number;
@@ -25,6 +27,7 @@ type AnimatedChipType = {
   activeBackgroundColor?: string;
   activeTextColor?: string;
   buttonStyle?: ViewStyle;
+  contentContainerStyle?: ViewStyle;
   onPress?: (chip: ChipType) => void;
 };
 const AnimatedTouchable = Animated.createAnimatedComponent(TouchableOpacity);
@@ -33,6 +36,7 @@ const AnimatedChip: React.FC<AnimatedChipType> = ({
   data,
   onPress,
   buttonStyle,
+  contentContainerStyle,
 }) => {
   const offset = useSharedValue(0);
 
@@ -42,10 +46,9 @@ const AnimatedChip: React.FC<AnimatedChipType> = ({
     };
   });
 
-  const renderItem = ({item, index}) => {
+  const renderItem: ListRenderItem<ChipType> = ({item}) => {
     return (
       <AnimatedTouchable
-        id={index}
         style={[styles.container, animatedStyle, buttonStyle]}
         onPress={() => {
           offset.value = withTiming(-3, {duration: 500});
@@ -59,6 +62,10 @@ const AnimatedChip: React.FC<AnimatedChipType> = ({
   return (
     <FlatList
       data={data}
+      contentContainerStyle={[
+        styles.contentContainerStyle,
+        contentContainerStyle,
+      ]}
       keyExtractor={(item, index) => `${item.id}-${index}`}
       renderItem={renderItem}
     />
