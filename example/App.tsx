@@ -33,7 +33,7 @@ const CHIP_DATA = [
 function App(): React.JSX.Element {
   return (
     <SafeAreaView>
-      <AnimatedChip />
+      <AnimatedChip data={CHIP_DATA} />
     </SafeAreaView>
   );
 }
