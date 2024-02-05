@@ -45,9 +45,9 @@ const AnimatedChip: React.FC<AnimatedChipType> = ({
   textStyle,
   activeId,
   activeBackgroundColor = '#d4a8d6',
-  backgroundColor = '#eee1b7',
+  backgroundColor = '#EEE7D1',
   activeTextColor = '#7d3577',
-  textColor = '#c9af60',
+  textColor = '#DCCA92',
 }) => {
   const [activeValue, setActiveValue] = useState<string | number>(activeId);
   const offset = useSharedValue(0);
@@ -75,7 +75,11 @@ const AnimatedChip: React.FC<AnimatedChipType> = ({
           onPress?.(item);
         }}>
         <Text
-          style={[textStyle, {color: isActive ? activeTextColor : textColor}]}>
+          style={[
+            styles.textStyle,
+            textStyle,
+            {color: isActive ? activeTextColor : textColor},
+          ]}>
           {item.text}
         </Text>
       </AnimatedTouchable>
