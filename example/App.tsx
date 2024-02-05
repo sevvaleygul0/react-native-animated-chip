@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView} from 'react-native';
+import {SafeAreaView, Text} from 'react-native';
 import AnimatedChip from './lib/AnimatedChip/AnimatedChip';
 
 const CHIP_DATA = [
@@ -10,7 +10,7 @@ const CHIP_DATA = [
   },
   {
     id: 2,
-    text: 'How I Met Your Mother',
+    text: '👨‍👩‍👧‍👦 How I Met Your Mother',
     active: false,
   },
   {
@@ -40,7 +40,7 @@ const CHIP_DATA = [
   },
   {
     id: 8,
-    text: 'Our Planet',
+    text: '🪐 Our Planet',
     active: false,
   },
   {
@@ -56,7 +56,7 @@ const CHIP_DATA = [
 
   {
     id: 11,
-    text: 'Sherlock',
+    text: '🕵🏼‍♂️ Sherlock',
     active: false,
   },
   {
@@ -86,7 +86,7 @@ const CHIP_DATA = [
   },
   {
     id: 17,
-    text: 'Black Mirror',
+    text: '🪞 Black Mirror',
     active: false,
   },
   {
@@ -106,14 +106,23 @@ const CHIP_DATA = [
   },
   {
     id: 21,
-    text: 'Anne with an E',
+    text: '👩🏼‍🌾 Anne with an E',
     active: false,
   },
 ];
 
 function App(): React.JSX.Element {
   return (
-    <SafeAreaView style={{marginHorizontal: 24, marginTop: 200}}>
+    <SafeAreaView style={{marginHorizontal: 24, marginTop: 150}}>
+      <Text
+        style={{
+          fontSize: 30,
+          fontWeight: '700',
+          color: '#935C47',
+          marginBottom: 32,
+        }}>
+        Choose your favorite TV series 📺
+      </Text>
       <AnimatedChip
         activeId={3}
         data={CHIP_DATA}
