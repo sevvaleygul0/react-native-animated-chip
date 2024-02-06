@@ -59,18 +59,15 @@ const Item = (props: ItemProps) => {
     activeTextColor = '#7d3577',
     textColor = '#DCCA92',
   } = props;
-  const animation = useSharedValue(1);
+  const animation = useSharedValue(0);
 
   const startAnimation = () => {
-    animation.value = withSequence(
-      withTiming(1.5, {duration: 500}),
-      withTiming(1, {duration: 500}),
-    );
+    animation.value = withSequence(withTiming(-4, {duration: 500}));
   };
 
   const animatedStyle = useAnimatedStyle(() => {
     return {
-      transform: [{scale: animation.value}],
+      transform: [{rotate: `${animation.value}deg`}],
     };
   });
 
