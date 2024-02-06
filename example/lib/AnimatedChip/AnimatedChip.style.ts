@@ -2,9 +2,9 @@ import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
   container: {
-    borderRadius: 20,
-    paddingHorizontal: 16,
-    paddingVertical: 10,
+    borderRadius: 24,
+    paddingHorizontal: 20,
+    paddingVertical: 12,
     marginRight: 4,
     marginBottom: 8,
   },
@@ -14,6 +14,6 @@ export default StyleSheet.create({
     paddingTop: 8,
   },
   textStyle: {
-    fontWeight: '600',
+    fontWeight: '800',
   },
 });

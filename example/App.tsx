@@ -96,7 +96,7 @@ function App(): React.JSX.Element {
       <Text
         style={{
           fontSize: 30,
-          fontWeight: '700',
+          fontWeight: '800',
           color: '#935C47',
           marginBottom: 32,
         }}>
