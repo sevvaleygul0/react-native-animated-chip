@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView, Text} from 'react-native';
+import {SafeAreaView, StyleSheet, Text} from 'react-native';
 import AnimatedChip from './lib/AnimatedChip/AnimatedChip';
 
 const CHIP_DATA = [
@@ -92,16 +92,8 @@ const CHIP_DATA = [
 
 function App(): React.JSX.Element {
   return (
-    <SafeAreaView style={{marginHorizontal: 24, marginTop: 150}}>
-      <Text
-        style={{
-          fontSize: 30,
-          fontWeight: '800',
-          color: '#935C47',
-          marginBottom: 32,
-        }}>
-        Choose your favorite TV series 📺
-      </Text>
+    <SafeAreaView style={styles.safeAreaStyle}>
+      <Text style={styles.textStyle}>Choose your favorite TV series 📺</Text>
       <AnimatedChip
         activeId={3}
         data={CHIP_DATA}
@@ -112,5 +104,16 @@ function App(): React.JSX.Element {
     </SafeAreaView>
   );
 }
-
+const styles = StyleSheet.create({
+  textStyle: {
+    fontSize: 30,
+    fontWeight: '800',
+    color: '#935C47',
+    marginBottom: 32,
+  },
+  safeAreaStyle: {
+    marginHorizontal: 24,
+    marginTop: 150,
+  },
+});
 export default App;
