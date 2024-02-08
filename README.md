@@ -52,7 +52,7 @@ npm i react-native-typescript-library-starter
 
 ```js
 "react": ">= 16.x.x",
-"react-native": ">= 0.55.x",
+"react-native-reanimated": ">= 3.x.x",
 ```
 
 # Usage
@@ -60,13 +60,39 @@ npm i react-native-typescript-library-starter
 ## Import
 
 ```jsx
-import MyComponent from "react-native-typescript-library-starter";
+import AnimatedChip from "react-native-animated-chip";
 ```
 
-## Fundamental Usage
+## Example Data
+
+```
+const CHIP_DATA: ChipType[] = [
+  {
+    id: 1,
+    text: 'Friends',
+  },
+  {
+    id: 2,
+    text: '👨‍👩‍👧‍👦 How I Met Your Mother',
+  },
+  {
+    id: 3,
+    text: 'Prison Break',
+  },
+
+];
+```
+
+## Usage
 
 ```jsx
-<MyComponent />
+<AnimatedChip
+  activeId={3}
+  data={CHIP_DATA}
+  onPress={(selected) => {
+    console.log(selected);
+  }}
+/>
 ```
 
 ## Example Project 😍
@@ -82,19 +108,18 @@ should work of the example project.
 
 # Configuration - Props
 
-| Property               | Type                       | Default       | Description                                                                                          |
-| ---------------------- | -------------------------- | ------------- | ---------------------------------------------------------------------------------------------------- |
-| data                   | ChipType[]                 | []            | An array of chip objects to display                                                                 |
-| activeId               | string \| number           | null          | The ID of the currently active chip                                                                  |
-| activeBackgroundColor  | string                     | '#d4a8d6'     | The background color of the active chip                                                              |
-| backgroundColor        | string                     | '#EEE7D1'     | The background color of inactive chips                                                               |
-| activeTextColor        | string                     | '#7d3577'     | The text color of the active chip                                                                    |
-| buttonStyle            | ViewStyle                  | {}            | Additional styles to apply to the chip button                                                        |
-| contentContainerStyle  | ViewStyle                  | {}            | Additional styles to apply to the container of chips                                                 |
-| textStyle              | TextStyle                  | {}            | Additional styles to apply to the chip text                                                          |
-| textColor              | string                     | '#DCCA92'     | The text color of inactive chips                                                                     |
-| onPress                | (chip: ChipType) => void  | () => {}      | A function that will be called when a chip is pressed, it receives the chip object as its argument  |
-
+| Property              | Type                     | Default   | Description                                                                                        |
+| --------------------- | ------------------------ | --------- | -------------------------------------------------------------------------------------------------- |
+| data                  | ChipType[]               | []        | An array of chip objects to display                                                                |
+| activeId              | string \| number         | null      | The ID of the currently active chip                                                                |
+| activeBackgroundColor | string                   | '#d4a8d6' | The background color of the active chip                                                            |
+| backgroundColor       | string                   | '#EEE7D1' | The background color of inactive chips                                                             |
+| activeTextColor       | string                   | '#7d3577' | The text color of the active chip                                                                  |
+| buttonStyle           | ViewStyle                | {}        | Additional styles to apply to the chip button                                                      |
+| contentContainerStyle | ViewStyle                | {}        | Additional styles to apply to the container of chips                                               |
+| textStyle             | TextStyle                | {}        | Additional styles to apply to the chip text                                                        |
+| textColor             | string                   | '#DCCA92' | The text color of inactive chips                                                                   |
+| onPress               | (chip: ChipType) => void | () => {}  | A function that will be called when a chip is pressed, it receives the chip object as its argument |
 
 ## Future Plans
 
