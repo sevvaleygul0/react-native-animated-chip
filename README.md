@@ -82,23 +82,19 @@ should work of the example project.
 
 # Configuration - Props
 
-## Fundamentals
+| Property               | Type                       | Default       | Description                                                                                          |
+| ---------------------- | -------------------------- | ------------- | ---------------------------------------------------------------------------------------------------- |
+| data                   | ChipType[]                 | []            | An array of chip objects to display                                                                 |
+| activeId               | string \| number           | null          | The ID of the currently active chip                                                                  |
+| activeBackgroundColor  | string                     | '#d4a8d6'     | The background color of the active chip                                                              |
+| backgroundColor        | string                     | '#EEE7D1'     | The background color of inactive chips                                                               |
+| activeTextColor        | string                     | '#7d3577'     | The text color of the active chip                                                                    |
+| buttonStyle            | ViewStyle                  | {}            | Additional styles to apply to the chip button                                                        |
+| contentContainerStyle  | ViewStyle                  | {}            | Additional styles to apply to the container of chips                                                 |
+| textStyle              | TextStyle                  | {}            | Additional styles to apply to the chip text                                                          |
+| textColor              | string                     | '#DCCA92'     | The text color of inactive chips                                                                     |
+| onPress                | (chip: ChipType) => void  | () => {}      | A function that will be called when a chip is pressed, it receives the chip object as its argument  |
 
-| Property    |  Type  |  Default  | Description           |
-| ----------- | :----: | :-------: | --------------------- |
-| title       | string | undefined | change the title      |
-| description | string | undefined | change the descrition |
-
-## Customization (Optionals)
-
-| Property       |   Type    |  Default  | Description                                                            |
-| -------------- | :-------: | :-------: | ---------------------------------------------------------------------- |
-| enableButton   |  boolean  |   false   | let you enable the button (must use it for button)                     |
-| onPress        | function  | undefined | set your own logic for the button functionality when it is pressed     |
-| buttonText     |  string   | undefined | change the button's text                                               |
-| style          | ViewStyle |  default  | set or override the style object for the main container                |
-| buttonStyle    | ViewStyle |  default  | set or override the style object for the button style                  |
-| ImageComponent |   Image   |  default  | set your own component instead of default react-native Image component |
 
 ## Future Plans
 
