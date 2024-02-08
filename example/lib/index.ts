@@ -1,4 +1,2 @@
-import Text from './AnimatedChipList/AnimatedChipList';
-import {Hello} from './StateFulComponent/Hello';
-
-export {Text, Hello};
+export type {ChipType} from './AnimatedChipList/AnimatedChipList';
+export {default as AnimatedChipList} from './AnimatedChipList/AnimatedChipList';
