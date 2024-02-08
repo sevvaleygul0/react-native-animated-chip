@@ -1,12 +1,5 @@
-import React, {useState} from 'react';
-import {
-  FlatList,
-  ListRenderItem,
-  Text,
-  TextStyle,
-  TouchableOpacity,
-  ViewStyle,
-} from 'react-native';
+import React from 'react';
+import {Text, TextStyle, TouchableOpacity, ViewStyle} from 'react-native';
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
@@ -17,28 +10,11 @@ import Animated, {
  * ? Local Imports
  */
 import styles from './AnimatedChip.style';
+import {ChipType} from '../AnimatedChipList/AnimatedChipList';
 
-type ChipType = {
-  id: string | number;
-  text: string;
-  active?: boolean;
-};
-
-type AnimatedChipType = {
-  data: ChipType[];
-  activeId: string | number;
-  activeBackgroundColor?: string;
-  backgroundColor?: string;
-  activeTextColor?: string;
-  buttonStyle?: ViewStyle;
-  contentContainerStyle?: ViewStyle;
-  textStyle?: TextStyle;
-  textColor?: string;
-  onPress?: (chip: ChipType) => void;
-};
 const AnimatedTouchable = Animated.createAnimatedComponent(TouchableOpacity);
 
-type ItemProps = {
+type AnimatedChipType = {
   isActive?: boolean;
   activeBackgroundColor?: string;
   backgroundColor?: string;
@@ -50,7 +26,7 @@ type ItemProps = {
   onSelectItem: () => void;
 };
 
-const Item = (props: ItemProps) => {
+const AnimatedChip: React.FC<AnimatedChipType> = props => {
   const {
     buttonStyle,
     textStyle,
@@ -103,39 +79,4 @@ const Item = (props: ItemProps) => {
     </AnimatedTouchable>
   );
 };
-
-const AnimatedChip: React.FC<AnimatedChipType> = ({
-  data,
-  contentContainerStyle,
-  activeId,
-  ...refs
-}) => {
-  const [activeValue, setActiveValue] = useState<string | number>(activeId);
-
-  const renderItem: ListRenderItem<ChipType> = ({item}) => {
-    return (
-      <Item
-        item={item}
-        onSelectItem={() => {
-          setActiveValue(item.id);
-        }}
-        isActive={activeValue === item.id}
-        {...refs}
-      />
-    );
-  };
-
-  return (
-    <FlatList
-      data={data}
-      contentContainerStyle={[
-        styles.contentContainerStyle,
-        contentContainerStyle,
-      ]}
-      keyExtractor={(item, index) => `${item.id}-${index}`}
-      renderItem={renderItem}
-    />
-  );
-};
-
 export default AnimatedChip;

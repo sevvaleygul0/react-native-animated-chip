@@ -8,7 +8,11 @@ export default StyleSheet.create({
     marginRight: 4,
     marginBottom: 8,
   },
-
+  contentContainerStyle: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    paddingTop: 8,
+  },
   textStyle: {
     fontWeight: '800',
   },
