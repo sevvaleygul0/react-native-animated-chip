@@ -95,7 +95,7 @@ function App(): React.JSX.Element {
     <SafeAreaView style={styles.safeAreaStyle}>
       <Text style={styles.textStyle}>Choose your favorite TV series 📺</Text>
       <AnimatedChip
-        activeId={3}
+        initialId={3}
         data={CHIP_DATA}
         onPress={selected => {
           console.log(selected);

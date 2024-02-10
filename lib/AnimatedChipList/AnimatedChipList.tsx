@@ -1,10 +1,10 @@
-import React, {useState} from 'react';
-import {FlatList, ListRenderItem, TextStyle, ViewStyle} from 'react-native';
+import React, { useState } from "react";
+import { FlatList, ListRenderItem, TextStyle, ViewStyle } from "react-native";
 /**
  * ? Local Imports
  */
-import styles from './AnimatedChipList.style';
-import AnimatedChip from '../AnimatedChip/AnimatedChip';
+import styles from "./AnimatedChipList.style";
+import AnimatedChip from "../AnimatedChip/AnimatedChip";
 
 export type ChipType = {
   id: string | number;
@@ -32,7 +32,7 @@ const AnimatedChipList: React.FC<AnimatedChipListType> = ({
 }) => {
   const [activeValue, setActiveValue] = useState<string | number>(activeId);
 
-  const renderItem: ListRenderItem<ChipType> = ({item}) => {
+  const renderItem: ListRenderItem<ChipType> = ({ item }) => {
     return (
       <AnimatedChip
         item={item}

@@ -14,7 +14,7 @@ export type ChipType = {
 
 type AnimatedChipListType = {
   data: ChipType[];
-  activeId: string | number;
+  initialId: string | number;
   activeBackgroundColor?: string;
   backgroundColor?: string;
   activeTextColor?: string;
@@ -27,10 +27,10 @@ type AnimatedChipListType = {
 const AnimatedChipList: React.FC<AnimatedChipListType> = ({
   data,
   contentContainerStyle,
-  activeId,
+  initialId,
   ...refs
 }) => {
-  const [activeValue, setActiveValue] = useState<string | number>(activeId);
+  const [activeValue, setActiveValue] = useState<string | number>(initialId);
 
   const renderItem: ListRenderItem<ChipType> = ({item}) => {
     return (
