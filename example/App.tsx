@@ -1,6 +1,6 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet, Text} from 'react-native';
-import AnimatedChip from './lib/AnimatedChipList/AnimatedChipList';
+import AnimatedChip from 'react-native-animated-chip';
 
 const CHIP_DATA = [
   {

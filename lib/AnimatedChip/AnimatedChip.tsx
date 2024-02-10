@@ -31,10 +31,11 @@ const AnimatedChip: React.FC<AnimatedChipType> = (props) => {
     buttonStyle,
     textStyle,
     activeBackgroundColor = "#d4a8d6",
-    backgroundColor = "#EEE7D1",
+    backgroundColor = "#F9EFD0",
     activeTextColor = "#7d3577",
     textColor = "#DCCA92",
   } = props;
+
   const animation = useSharedValue(0);
 
   const startAnimation = () => {
