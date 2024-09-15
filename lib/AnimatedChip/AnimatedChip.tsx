@@ -1,16 +1,16 @@
-import React from 'react';
-import {Text, TextStyle, TouchableOpacity, ViewStyle} from 'react-native';
+import React from "react";
+import { Text, TextStyle, TouchableOpacity, ViewStyle } from "react-native";
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
   withSequence,
   withTiming,
-} from 'react-native-reanimated';
+} from "react-native-reanimated";
 /**
  * ? Local Imports
  */
-import styles from './AnimatedChip.style';
-import {ChipType} from '../AnimatedChipList/AnimatedChipList';
+import styles from "./AnimatedChip.style";
+import { ChipType } from "../AnimatedChipList/AnimatedChipList";
 
 const AnimatedTouchable = Animated.createAnimatedComponent(TouchableOpacity);
 
@@ -26,24 +26,25 @@ type AnimatedChipType = {
   onSelectItem: () => void;
 };
 
-const AnimatedChip: React.FC<AnimatedChipType> = props => {
+const AnimatedChip: React.FC<AnimatedChipType> = (props) => {
   const {
     buttonStyle,
     textStyle,
-    activeBackgroundColor = '#d4a8d6',
-    backgroundColor = '#EEE7D1',
-    activeTextColor = '#7d3577',
-    textColor = '#DCCA92',
+    activeBackgroundColor = "#d4a8d6",
+    backgroundColor = "#F9EFD0",
+    activeTextColor = "#7d3577",
+    textColor = "#DCCA92",
   } = props;
+
   const animation = useSharedValue(0);
 
   const startAnimation = () => {
-    animation.value = withSequence(withTiming(-4, {duration: 500}));
+    animation.value = withSequence(withTiming(-4, { duration: 500 }));
   };
 
   const animatedStyle = useAnimatedStyle(() => {
     return {
-      transform: [{rotate: `${animation.value}deg`}],
+      transform: [{ rotate: `${animation.value}deg` }],
     };
   });
 
@@ -67,13 +68,15 @@ const AnimatedChip: React.FC<AnimatedChipType> = props => {
       ]}
       onPress={() => {
         onSelect();
-      }}>
+      }}
+    >
       <Text
         style={[
           styles.textStyle,
           textStyle,
-          {color: props.isActive ? activeTextColor : textColor},
-        ]}>
+          { color: props.isActive ? activeTextColor : textColor },
+        ]}
+      >
         {props.item.text}
       </Text>
     </AnimatedTouchable>

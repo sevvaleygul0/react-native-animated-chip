@@ -1,5 +1,11 @@
 import React from 'react';
-import {Text, TextStyle, TouchableOpacity, ViewStyle} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  TextStyle,
+  TouchableOpacity,
+  ViewStyle,
+} from 'react-native';
 import Animated, {
   runOnJS,
   useAnimatedStyle,
@@ -10,7 +16,6 @@ import Animated, {
 /**
  * ? Local Imports
  */
-import styles from './AnimatedChip.style';
 import {ChipType} from '../AnimatedChipList/AnimatedChipList';
 
 const AnimatedTouchable = Animated.createAnimatedComponent(TouchableOpacity);
@@ -78,3 +83,17 @@ const AnimatedChip: React.FC<AnimatedChipProps> = ({
 };
 
 export default AnimatedChip;
+
+const styles = StyleSheet.create({
+  container: {
+    borderRadius: 24,
+    paddingHorizontal: 20,
+    paddingVertical: 12,
+    marginRight: 4,
+    marginBottom: 8,
+  },
+
+  textStyle: {
+    fontWeight: '800',
+  },
+});

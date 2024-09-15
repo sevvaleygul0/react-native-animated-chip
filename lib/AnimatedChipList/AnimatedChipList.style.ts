@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
   container: {
@@ -9,11 +9,11 @@ export default StyleSheet.create({
     marginBottom: 8,
   },
   contentContainerStyle: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
+    flexDirection: "row",
+    flexWrap: "wrap",
     paddingTop: 8,
   },
   textStyle: {
-    fontWeight: '800',
+    fontWeight: "800",
   },
 });

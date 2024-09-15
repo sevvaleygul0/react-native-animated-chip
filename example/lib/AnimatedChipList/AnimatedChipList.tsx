@@ -1,9 +1,14 @@
 import React, {useState} from 'react';
-import {FlatList, ListRenderItem, TextStyle, ViewStyle} from 'react-native';
+import {
+  FlatList,
+  ListRenderItem,
+  StyleSheet,
+  TextStyle,
+  ViewStyle,
+} from 'react-native';
 /**
  * ? Local Imports
  */
-import styles from './AnimatedChipList.style';
 import AnimatedChip from '../AnimatedChip/AnimatedChip';
 
 export type ChipType = {
@@ -66,3 +71,21 @@ const AnimatedChipList: React.FC<AnimatedChipListProps> = ({
 };
 
 export default AnimatedChipList;
+
+const styles = StyleSheet.create({
+  container: {
+    borderRadius: 24,
+    paddingHorizontal: 20,
+    paddingVertical: 12,
+    marginRight: 4,
+    marginBottom: 8,
+  },
+  contentContainerStyle: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    paddingTop: 8,
+  },
+  textStyle: {
+    fontWeight: '800',
+  },
+});
