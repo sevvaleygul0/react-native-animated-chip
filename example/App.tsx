@@ -108,10 +108,11 @@ const styles = StyleSheet.create({
   textStyle: {
     fontSize: 30,
     fontWeight: '800',
-    color: '#935C47',
+    color: '#7D3577',
     marginBottom: 32,
   },
   safeAreaStyle: {
+    flex: 1,
     marginHorizontal: 24,
     marginTop: 150,
   },
