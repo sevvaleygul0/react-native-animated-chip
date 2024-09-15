@@ -12,7 +12,7 @@ export type ChipType = {
   active?: boolean;
 };
 
-type AnimatedChipListType = {
+type AnimatedChipListProps = {
   data: ChipType[];
   activeId: string | number;
   activeBackgroundColor?: string;
@@ -24,26 +24,33 @@ type AnimatedChipListType = {
   textColor?: string;
   onPress?: (chip: ChipType) => void;
 };
-const AnimatedChipList: React.FC<AnimatedChipListType> = ({
-  data,
-  contentContainerStyle,
-  activeId,
-  ...refs
-}) => {
-  const [activeValue, setActiveValue] = useState<string | number>(activeId);
 
-  const renderItem: ListRenderItem<ChipType> = ({item}) => {
-    return (
-      <AnimatedChip
-        item={item}
-        onSelectItem={() => {
-          setActiveValue(item.id);
-        }}
-        isActive={activeValue === item.id}
-        {...refs}
-      />
-    );
+const AnimatedChipList: React.FC<AnimatedChipListProps> = ({
+  data,
+  activeId,
+  contentContainerStyle,
+  onPress,
+  ...chipProps
+}) => {
+  const [activeChipId, setActiveChipId] = useState<string | number | undefined>(
+    activeId,
+  );
+
+  const handleChipSelect = (chip: ChipType) => {
+    activeChipId && activeChipId === chip.id
+      ? setActiveChipId(undefined)
+      : setActiveChipId(chip.id);
+    onPress?.(chip);
   };
+
+  const renderChip: ListRenderItem<ChipType> = ({item}) => (
+    <AnimatedChip
+      item={item}
+      isActive={activeChipId === item.id}
+      onSelectItem={() => handleChipSelect(item)}
+      {...chipProps}
+    />
+  );
 
   return (
     <FlatList
@@ -52,8 +59,8 @@ const AnimatedChipList: React.FC<AnimatedChipListType> = ({
         styles.contentContainerStyle,
         contentContainerStyle,
       ]}
-      keyExtractor={(item, index) => `${item.id}-${index}`}
-      renderItem={renderItem}
+      keyExtractor={item => `${item.id}`}
+      renderItem={renderChip}
     />
   );
 };
